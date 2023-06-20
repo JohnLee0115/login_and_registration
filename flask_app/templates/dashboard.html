@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+
+<style>
+    
+    h1 {
+        font-family: sans-serif;
+        text-align: center;
+    }
+
+    button {
+        width: 100px;
+        height: 30px;
+        background-color:rgb(20,162,184);
+        color: white;
+        border: none;
+        font-family: sans-serif;
+        font-size: 12pt;
+        font-weight: bolder;
+        margin-left: 200px;
+    }
+
+</style>
+
+<body>
+
+    <h1>Welcome {{one_user.first_name}}!</h1>
+
+    <a href="/logout"><button>Logout</button></a>
+    
+</body>
+
+</html>

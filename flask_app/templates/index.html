@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Registration Forms</title>
+</head>
+
+<style>
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .lr {
+        border: solid 2px black;
+        height: 700px;
+        width: 400px;
+        background-color: rgb(52,57,62);
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 40px;
+    }
+
+    input {
+        width: 350px;
+        height: 30px;
+        font-size: 14pt;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    label {
+        color: white;
+        font-family: sans-serif;
+    }
+
+    .reg {
+        color: rgb(5,122,254);
+    }
+
+    .log {
+        color: rgb(40,166,68);
+    }
+
+    h2 {
+        font-family: sans-serif;
+        font-size: 26pt;
+        font-weight: lighter;
+        margin-bottom: 20px;
+    }
+
+    .butt {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .but {
+        width: 100px;
+        height: 35px;
+        color: white;
+        font-family: sans-serif;
+    }
+
+    .butt1 {
+        background-color: rgb(5,122,254);
+    }
+
+    .butt2 {
+        background-color: rgb(40,166,68);
+    }
+
+    p {
+        color: white;
+    }
+
+    .flash {
+        width: 360px;
+        height: auto;
+        background-color: rgb(247,214,217);
+    }
+
+    p {
+        color: rgb(127,46,53);
+        margin: 5px;
+    }
+
+</style>
+
+<body>
+
+    <div class="lr">
+
+        <h2 class="reg">Register</h2>
+        <form action="/process" method="post">
+            <div>
+                <Label for="first_name">First Name : </Label>
+                <input type="text" name="first_name">
+            </div>
+            <div>
+                <Label for="last_name">Last Name : </Label>
+                <input type="text" name="last_name">
+            </div>
+            <div>
+                <Label for="email">Email : </Label>
+                <input type="text" name="email">
+            </div>
+            <div>
+                <Label for="password">Password : </Label>
+                <input type="password" name="password">
+            </div>
+            <div>
+                <Label for="confirm_password">Confirm Password : </Label>
+                <input type="password" name="confirm_password">
+            </div>
+            <div class="butt">
+                <input type="submit" value="Register" class="but butt1">
+            </div>
+            <div class="flash">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p>{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+        </form>
+
+    </div>
+
+    <div class="lr">
+
+        <h2 class="log">Login</h2>
+        <form action="/login" method="POST">
+            <div>
+                <Label for="email">Email : </Label>
+                <input type="text" name="email">
+            </div>
+            <div>
+                <Label for="password">Password : </Label>
+                <input type="password" name="password">
+            </div>
+            <div class="butt">
+                <input type="submit" value="Login" class="but butt2">
+            </div>
+            <div class="flash">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p>{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+        </form>
+
+    </div>
+
+</body>
+</html>
